@@ -1,7 +1,9 @@
 module hu.filmest.filmest {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
     requires com.google.gson;
+    requires java.desktop;
 
 
     opens hu.filmest.filmest to javafx.fxml, com.google.gson;
