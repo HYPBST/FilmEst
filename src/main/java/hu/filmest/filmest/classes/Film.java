@@ -91,5 +91,37 @@ public class Film {
         this.szineszek = szineszek;
     }
 
-
+    public String kategoriakToString(){
+        StringBuilder kimenet= new StringBuilder();
+        for (int i = 0; i < this.kategoriak.size(); i++) {
+            if (i!=this.kategoriak.size()-1){
+                kimenet.append(this.kategoriak.get(i).getKategoria()).append(", ");
+            }else{
+                kimenet.append(this.kategoriak.get(i).getKategoria());
+            }
+        }
+        return kimenet.toString();
+    }
+    public String rendezokToString(){
+        StringBuilder kimenet= new StringBuilder();
+        for (int i = 0; i < this.rendezok.size(); i++) {
+            if (i!=this.rendezok.size()-1){
+                kimenet.append(this.rendezok.get(i).getRendezoNev()).append(", ");
+            }else{
+                kimenet.append(this.rendezok.get(i).getRendezoNev());
+            }
+        }
+        return kimenet.toString();
+    }
+    public String szineszekToString(){
+        StringBuilder kimenet= new StringBuilder();
+        for (int i = 0; i < this.szineszek.size(); i++) {
+            if (i!=this.szineszek.size()-1){
+                kimenet.append(this.szineszek.get(i).getSzineszNev()).append(", ");
+            }else{
+                kimenet.append(this.szineszek.get(i).getSzineszNev());
+            }
+        }
+        return kimenet.toString();
+    }
 }
