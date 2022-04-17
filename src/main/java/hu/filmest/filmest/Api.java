@@ -68,7 +68,6 @@ public class Api {
     public static Film filmHozzaadasa(Film ujFilm) throws IOException {
         Gson jsonConvert = new Gson();
         String filmJson = jsonConvert.toJson(ujFilm);
-        System.out.println(filmJson);
         Response response = RequestHandler.post(FILM_API_URL, filmJson);
 
         String json = response.getContent();

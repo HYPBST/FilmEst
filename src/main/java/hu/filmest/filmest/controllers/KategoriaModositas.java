@@ -45,8 +45,6 @@ public class KategoriaModositas extends Controller {
             List<Kategoria> kategoriaList= Api.getKategoriaList();
             for (Kategoria k:kategoriaList
             ) {
-                System.out.println(k.getKategoria());
-                System.out.println(kategoria);
                 if (k.getKategoria().equalsIgnoreCase(kategoria)){
                     alert("A kategória már létezik");
 

@@ -212,11 +212,6 @@ public class FilmModositas extends Controller {
             }
 
         }
-        for (Kategoria kat:kategoriaListUj
-        ) {
-            System.out.println(kat.getId());
-            System.out.println(kat.getKategoria());
-        }
         modositando.setKategoriak(kategoriaListUj);
         for (MenuItem mi:menuRendezok.getItems()) {
             CheckBox cb = (CheckBox)mi.getUserData() ;
