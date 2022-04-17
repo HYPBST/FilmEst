@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hu.filmest.filmest.Szineszhozzaadas"
-            prefHeight="400.0" prefWidth="600.0">
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hu.filmest.filmest.controllers.SzineszFelvetel"
+      prefHeight="400.0" prefWidth="600.0" spacing="10">
+    <Label text="Színész neve:"/>
+    <TextField fx:id="felvetelSzinesz" promptText="Színész" GridPane.columnIndex="1"/>
 
-</AnchorPane>
+    <Button minWidth="100.0" mnemonicParsing="false" onAction="#onFelvetelButtonClick" prefWidth="200.0"
+            text="Felvétel"/>
+
+</VBox>
