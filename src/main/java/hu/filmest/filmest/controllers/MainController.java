@@ -1,4 +1,4 @@
-package hu.filmest.filmest;
+package hu.filmest.filmest.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
