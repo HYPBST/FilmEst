@@ -114,4 +114,50 @@ public class Api {
         }
         return response.getResponseCode() == 204;
     }
+    public static List<Rendezo> getRendezokList() throws IOException {
+        Response response = RequestHandler.get(RENDEZO_API_URL);
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        Type type = new TypeToken<List<Rendezo>>(){}.getType();
+        return jsonConvert.fromJson(json,type);
+    }
+    public static Rendezo rendezoHozzaadas(Rendezo ujRendezo) throws IOException {
+        Gson jsonConvert = new Gson();
+        String rendezoJson = jsonConvert.toJson(ujRendezo);
+        Response response = RequestHandler.post(RENDEZO_API_URL, rendezoJson);
+
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return jsonConvert.fromJson(json, Rendezo.class);
+    }
+    public static Rendezo rendezoModositas(Rendezo modositando) throws IOException {
+        Gson jsonConvert = new Gson();
+        String rendezoJson = jsonConvert.toJson(modositando);
+        Response response = RequestHandler.put(RENDEZO_API_URL+"/"+modositando.getId(), rendezoJson);
+
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return jsonConvert.fromJson(json, Rendezo.class);
+    }
+    public static boolean rendezoTorles(int id) throws IOException {
+        Response response = RequestHandler.delete(RENDEZO_API_URL + "/" + id);
+
+        Gson jsonConvert = new Gson();
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return response.getResponseCode() == 204;
+    }
 }
