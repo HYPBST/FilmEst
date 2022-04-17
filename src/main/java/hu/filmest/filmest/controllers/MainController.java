@@ -148,14 +148,13 @@ public class MainController extends Controller {
         if(filmTable.getSelectionModel().getSelectedIndex()!=-1) {
 
             Film kivalasztott = filmTable.getSelectionModel().getSelectedItem();
-            StringBuilder  sb=new StringBuilder();
-            sb.append("Megjelenési év: ").append(kivalasztott.getMegjelenesiEv()).append("\n");
-            sb.append("Rendező: ").append(kivalasztott.rendezokToString()).append("\n");
-            sb.append("Leírás: ").append(kivalasztott.getLeiras()).append("\n");
-            sb.append("Kategóriák: ").append(kivalasztott.kategoriakToString()).append("\n");
-            sb.append("Színészek: ").append(kivalasztott.szineszekToString()).append("\n");
-            sb.append("Értékelés: ").append(kivalasztott.getErtekeles());
-            txtAdatok.setText(sb.toString());
+            String sb = "Megjelenési év: " + kivalasztott.getMegjelenesiEv() + "\n" +
+                    "Rendező: " + kivalasztott.rendezokToString() + "\n" +
+                    "Leírás: " + kivalasztott.getLeiras() + "\n" +
+                    "Kategóriák: " + kivalasztott.kategoriakToString() + "\n" +
+                    "Színészek: " + kivalasztott.szineszekToString() + "\n" +
+                    "Értékelés: " + kivalasztott.getErtekeles();
+            txtAdatok.setText(sb);
         }
     }
     private void kapcsolatok(){
@@ -233,7 +232,7 @@ public class MainController extends Controller {
         }
         Kategoria modositando = kategoriaTable.getSelectionModel().getSelectedItem();
         try {
-            KategoriaModosit modositas = (KategoriaModosit) newWindow("kategoriaModosit-view.fxml",
+            KategoriaModositas modositas = (KategoriaModositas) newWindow("kategoriaModosit-view.fxml",
                     "Kategória módosítás", 320, 400);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
@@ -281,7 +280,7 @@ public class MainController extends Controller {
         }
         Rendezo modositando = rendezoTable.getSelectionModel().getSelectedItem();
         try {
-            RendezoModosit modositas = (RendezoModosit) newWindow("rendezomodosit-view.fxml",
+            RendezoModositas modositas = (RendezoModositas) newWindow("rendezomodosit-view.fxml",
                     "Rendező módosítás", 320, 400);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
@@ -329,7 +328,7 @@ public class MainController extends Controller {
         }
         Szinesz modositando = szineszTable.getSelectionModel().getSelectedItem();
         try {
-            SzineszModosit modositas = (SzineszModosit) newWindow("szineszmodosit-view.fxml",
+            SzineszModositas modositas = (SzineszModositas) newWindow("szineszmodosit-view.fxml",
                     "Színész Módosítás", 320, 400);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
@@ -366,8 +365,8 @@ public class MainController extends Controller {
         }
         Film modositando = filmTable.getSelectionModel().getSelectedItem();
         try {
-            FilmModosit modositas = (FilmModosit) newWindow("filmmodosit-view.fxml",
-                    "Film Módosítás", 320, 400);
+            FilmModositas modositas = (FilmModositas) newWindow("filmmodosit-view.fxml",
+                    "Film Módosítás", 400, 500);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
             modositas.getStage().show();
@@ -398,7 +397,7 @@ public class MainController extends Controller {
     public void onFilmHozzadasButtonClick(ActionEvent actionEvent) {
         try {
             Controller hozzadas = newWindow("filmhozzaad-view.fxml", "Film hozzáadás",
-                    320, 400);
+                    400, 500);
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
