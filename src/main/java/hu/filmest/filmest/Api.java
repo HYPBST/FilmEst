@@ -206,4 +206,26 @@ public class Api {
         }
         return response.getResponseCode() == 204;
     }
+    public static List<Felhasznalo> getFelhasznaloList() throws IOException {
+        Response response = RequestHandler.get(FELHASZNALO_API_URL);
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        Type type = new TypeToken<List<Felhasznalo>>(){}.getType();
+        return jsonConvert.fromJson(json,type);
+    }
+    public static boolean felhasznaloTorles(int id) throws IOException {
+        Response response = RequestHandler.delete(FELHASZNALO_API_URL + "/" + id);
+
+        Gson jsonConvert = new Gson();
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return response.getResponseCode() == 204;
+    }
 }
