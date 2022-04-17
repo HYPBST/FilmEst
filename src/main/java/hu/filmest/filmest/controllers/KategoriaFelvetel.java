@@ -43,6 +43,7 @@ public class KategoriaFelvetel extends Controller {
             Kategoria letrehozott= Api.kategoriaHozzaadas(ujKategoria);
             if (letrehozott != null ){
                 alert("Kategória hozzáadása sikeres");
+                this.stage.close();
             } else {
                 alert("Kategória hozzáadása sikeretelen");
             }

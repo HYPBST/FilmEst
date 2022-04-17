@@ -44,6 +44,7 @@ public class RendezoFelvetel extends Controller {
             Rendezo letrehozott= Api.rendezoHozzaadas(ujRendezo);
             if (letrehozott != null ){
                 alert("Rendező hozzáadása sikeres");
+                this.stage.close();
             } else {
                 alert("Rendező hozzáadása sikeretelen");
             }

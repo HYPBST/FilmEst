@@ -215,7 +215,7 @@ public class MainController extends Controller {
 
     public void onKategoriaHozzadasButtonClick(ActionEvent actionEvent) {
         try {
-            Controller hozzadas = newWindow("kategoriahozzaad-view.fxml", "Kategória hozzáadása",
+            Controller hozzadas = newWindow("kategoriahozzaadas-view.fxml", "Kategória hozzáadása",
                     320, 400);
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
@@ -232,7 +232,7 @@ public class MainController extends Controller {
         }
         Kategoria modositando = kategoriaTable.getSelectionModel().getSelectedItem();
         try {
-            KategoriaModositas modositas = (KategoriaModositas) newWindow("kategoriaModosit-view.fxml",
+            KategoriaModositas modositas = (KategoriaModositas) newWindow("kategoriaModositas-view.fxml",
                     "Kategória módosítás", 320, 400);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
@@ -263,7 +263,7 @@ public class MainController extends Controller {
 
     public void onRendezoHozzadasButtonClick(ActionEvent actionEvent) {
         try {
-            Controller hozzadas = newWindow("rendezohozzaad-view.fxml", "Rendező hozzáadás",
+            Controller hozzadas = newWindow("rendezohozzaadas-view.fxml", "Rendező hozzáadás",
                     320, 400);
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
@@ -280,7 +280,7 @@ public class MainController extends Controller {
         }
         Rendezo modositando = rendezoTable.getSelectionModel().getSelectedItem();
         try {
-            RendezoModositas modositas = (RendezoModositas) newWindow("rendezomodosit-view.fxml",
+            RendezoModositas modositas = (RendezoModositas) newWindow("rendezomodositas-view.fxml",
                     "Rendező módosítás", 320, 400);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
@@ -311,7 +311,7 @@ public class MainController extends Controller {
 
     public void onSzineszHozzadasButtonClick(ActionEvent actionEvent) {
         try {
-            Controller hozzadas = newWindow("szineszhozzaad-view.fxml", "Színész Hozzáadás",
+            Controller hozzadas = newWindow("szineszhozzaadas-view.fxml", "Színész Hozzáadás",
                     320, 400);
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
@@ -328,7 +328,7 @@ public class MainController extends Controller {
         }
         Szinesz modositando = szineszTable.getSelectionModel().getSelectedItem();
         try {
-            SzineszModositas modositas = (SzineszModositas) newWindow("szineszmodosit-view.fxml",
+            SzineszModositas modositas = (SzineszModositas) newWindow("szineszmodositas-view.fxml",
                     "Színész Módosítás", 320, 400);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
@@ -365,7 +365,7 @@ public class MainController extends Controller {
         }
         Film modositando = filmTable.getSelectionModel().getSelectedItem();
         try {
-            FilmModositas modositas = (FilmModositas) newWindow("filmmodosit-view.fxml",
+            FilmModositas modositas = (FilmModositas) newWindow("filmmodositas-view.fxml",
                     "Film Módosítás", 400, 500);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> reset());
@@ -396,7 +396,7 @@ public class MainController extends Controller {
 
     public void onFilmHozzadasButtonClick(ActionEvent actionEvent) {
         try {
-            Controller hozzadas = newWindow("filmhozzaad-view.fxml", "Film hozzáadás",
+            Controller hozzadas = newWindow("filmhozzaadas-view.fxml", "Film hozzáadás",
                     400, 500);
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();

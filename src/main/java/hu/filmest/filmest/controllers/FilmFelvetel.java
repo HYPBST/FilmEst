@@ -207,6 +207,7 @@ public class FilmFelvetel extends Controller {
             Film letrehozott = Api.filmHozzaadasa(ujFilm);
             if (letrehozott != null ){
                 alert("Film hozzáadása sikeres");
+                this.stage.close();
             } else {
                 alert("Film hozzáadása sikeretelen");
             }

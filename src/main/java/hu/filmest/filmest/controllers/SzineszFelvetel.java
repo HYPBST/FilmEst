@@ -45,6 +45,7 @@ public class SzineszFelvetel extends Controller {
             Szinesz letrehozott= Api.szineszHozzaadas(ujSzinesz);
             if (letrehozott != null ){
                 alert("Színész hozzáadása sikeres");
+                this.stage.close();
             } else {
                 alert("Színész hozzáadása sikeretelen");
             }
