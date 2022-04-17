@@ -1,6 +1,7 @@
 package hu.filmest.filmest;
 
 import hu.filmest.filmest.classes.*;
+import hu.filmest.filmest.pivot.*;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -18,6 +19,40 @@ public class Api {
     private static final String FILMRENDEZO_API_URL = BASE_URL+"api/filmrendezo";
     private static final String FILMSZINESZ_API_URL = BASE_URL+"api/filmszinesz";
     private static final String FELHASZNALO_API_URL = BASE_URL+"api/felhasznalok";
+
+    public static List<FilmKategoriai> GetFilmKategoriai() throws IOException {
+        Response response = RequestHandler.get(FILMKATEGORIA_API_URL);
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        Type type = new TypeToken<List<FilmKategoriai>>(){}.getType();
+        return jsonConvert.fromJson(json,type);
+    }
+    public static List<FilmRendezoi> GetFilmRendezoi() throws IOException {
+        Response response = RequestHandler.get(FILMRENDEZO_API_URL);
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        Type type = new TypeToken<List<FilmRendezoi>>(){}.getType();
+        return jsonConvert.fromJson(json,type);
+    }
+    public static List<FilmSzineszei> GetFilmSzineszei() throws IOException {
+        Response response = RequestHandler.get(FILMSZINESZ_API_URL);
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        Type type = new TypeToken<List<FilmSzineszei>>(){}.getType();
+        return jsonConvert.fromJson(json,type);
+    }
 
     public static List<Film> getFilmList() throws IOException {
         Response response = RequestHandler.get(FILM_API_URL);
