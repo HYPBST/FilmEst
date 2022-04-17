@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hu.filmest.filmest.Filmmodositas"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox xmlns="http://javafx.com/javafx/11.0.2"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="hu.filmest.filmest.controllers.FilmModositas"
+      spacing="5">
+    <Label text="Cím:"/>
+    <TextField fx:id="txtCim" promptText="Cím" />
+    <Label text="Leírás:"/>
+    <TextArea fx:id="txtLeiras" promptText="Leírás" />
+    <Label text="Megjelenési év:"/>
+    <TextField fx:id="txtEv" promptText="Megjelenési év" />
+    <Label text="értékelés:"/>
+    <TextField fx:id="txtErtekeles" promptText="Értékelés" />
+    <Label text="Img Url:"/>
+    <TextField fx:id="txtImgUrl" promptText="Img Url" />
+    <MenuButton text="Kategóriák" fx:id="menuKategoria"/>
+    <MenuButton text="Színészek" fx:id="menuSzineszek"/>
+    <MenuButton text="Rendezők" fx:id="menuRendezok"/>
+    <Button text="Módosít" onAction="#onModositButtonClick"/>
+</VBox>
