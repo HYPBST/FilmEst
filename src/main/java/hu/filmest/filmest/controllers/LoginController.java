@@ -28,7 +28,7 @@ public class LoginController extends Controller{
         try {
             Token token = Api.postBejelentkezes(bejelentkezes);
             Felhasznalo felhasznaloAdatok = Api.getBejelentkezesAdatok(token.getToken());
-            if(felhasznaloAdatok.isAdmin()==1) {
+            if(felhasznaloAdatok.getPermission()==1) {
                 ((Stage) bejelentkezesView.getScene().getWindow()).close();
                 MainController main = (MainController) newWindow(
                         "main-view.fxml", "FilmEst", 800, 600

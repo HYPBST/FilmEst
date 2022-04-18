@@ -11,7 +11,7 @@ public class Felhasznalo {
         this.permission = permission;
     }
 
-    public int isAdmin() {
+    public int getPermission() {
         return permission;
     }
 

@@ -113,7 +113,7 @@ public class MainController extends Controller {
         }
         felhasznaloTable.getItems().clear();
         for(Felhasznalo felhasznalo: felhasznaloList){
-            if (felhasznalo.isAdmin()==0){
+            if (felhasznalo.getPermission()==0){
                 felhasznaloTable.getItems().add(felhasznalo);
             }
         }
