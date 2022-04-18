@@ -113,7 +113,9 @@ public class MainController extends Controller {
         }
         felhasznaloTable.getItems().clear();
         for(Felhasznalo felhasznalo: felhasznaloList){
-            felhasznaloTable.getItems().add(felhasznalo);
+            if (felhasznalo.isAdmin()==0){
+                felhasznaloTable.getItems().add(felhasznalo);
+            }
         }
     }
     private void kategoriaListaFeltolt(){

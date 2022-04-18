@@ -19,6 +19,8 @@ public class Api {
     private static final String FILMRENDEZO_API_URL = BASE_URL+"api/filmrendezo";
     private static final String FILMSZINESZ_API_URL = BASE_URL+"api/filmszinesz";
     private static final String FELHASZNALO_API_URL = BASE_URL+"api/felhasznalok";
+    private static final String LOGIN_API_URL = BASE_URL+"api/login";
+    private static final String LOGIN_USER_API_URL = BASE_URL+"api/user";
 
     public static List<FilmKategoriai> GetFilmKategoriai() throws IOException {
         Response response = RequestHandler.get(FILMKATEGORIA_API_URL);
@@ -261,5 +263,36 @@ public class Api {
             throw new IOException(message);
         }
         return response.getResponseCode() == 204;
+    }
+    public static Gson jsonConverter = new Gson();
+
+    public static String getBejelentkezes(String url, String token) throws IOException {
+        Response response = RequestHandler.tokenAuthorization(url, token);
+        String json = response.getContent();
+
+        if (response.getResponseCode() >= 400){
+            String message = jsonConverter.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return json;
+    }
+
+    public static Token postBejelentkezes(Bejelentkezes bejelentkezes) throws IOException {
+        String bejelentkezesJson = jsonConverter.toJson(bejelentkezes);
+
+        Response response = RequestHandler.post(LOGIN_API_URL, bejelentkezesJson);
+        String json = response.getContent();
+
+        if (response.getResponseCode() >= 400){
+            String message = jsonConverter.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return jsonConverter.fromJson(json, Token.class);
+    }
+
+    public static Felhasznalo getBejelentkezesAdatok(String token) throws IOException {
+        String json = getBejelentkezes(LOGIN_USER_API_URL, token);
+        System.out.println(json);
+        return jsonConverter.fromJson(json, Felhasznalo.class);
     }
 }
