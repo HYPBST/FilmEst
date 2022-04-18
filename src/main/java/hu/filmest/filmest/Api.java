@@ -288,8 +288,4 @@ public class Api {
         return jsonConverter.fromJson(json, Token.class);
     }
 
-    /*public static Felhasznalo getBejelentkezesAdatok(String token) throws IOException {
-        String json = getBejelentkezes(LOGIN_USER_API_URL, token);
-        return jsonConverter.fromJson(json, Felhasznalo.class);
-    }*/
 }
