@@ -266,15 +266,15 @@ public class Api {
     }
     public static Gson jsonConverter = new Gson();
 
-    public static String getBejelentkezes(String url, String token) throws IOException {
-        Response response = RequestHandler.tokenAuthorization(url, token);
+    public static Felhasznalo getBejelentkezesAdatok(String token) throws IOException {
+        Response response = RequestHandler.tokenAuthorization(LOGIN_USER_API_URL, token);
         String json = response.getContent();
 
         if (response.getResponseCode() >= 400){
             String message = jsonConverter.fromJson(json, ApiError.class).getMessage();
             throw new IOException(message);
         }
-        return json;
+        return jsonConverter.fromJson(json, Felhasznalo.class);
     }
 
     public static Token postBejelentkezes(Bejelentkezes bejelentkezes) throws IOException {
@@ -288,8 +288,8 @@ public class Api {
         return jsonConverter.fromJson(json, Token.class);
     }
 
-    public static Felhasznalo getBejelentkezesAdatok(String token) throws IOException {
+    /*public static Felhasznalo getBejelentkezesAdatok(String token) throws IOException {
         String json = getBejelentkezes(LOGIN_USER_API_URL, token);
         return jsonConverter.fromJson(json, Felhasznalo.class);
-    }
+    }*/
 }
