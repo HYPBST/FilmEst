@@ -25,13 +25,10 @@ public class LoginController extends Controller{
 
         String login_email = txtEmail.getText().trim();
         String login_password = txtPassword.getText().trim();
-
         Bejelentkezes bejelentkezes = new Bejelentkezes(login_email, login_password);
-
         try {
             Token token = Api.postBejelentkezes(bejelentkezes);
             Felhasznalo felhasznaloAdatok = Api.getBejelentkezesAdatok(token.getToken());
-            System.out.println(felhasznaloAdatok.isAdmin());
             if(felhasznaloAdatok.isAdmin()==1) {
                 ((Stage) bejelentkezesView.getScene().getWindow()).close();
                 MainController main = (MainController) newWindow(
@@ -46,24 +43,6 @@ public class LoginController extends Controller{
         } catch (IOException e) {
             showAlert(e);
         }
-
-        /*String login_email = txtEmail.getText().trim();
-        String login_password = txtPassword.getText().trim();
-
-        Bejelentkezes bejelentkezes = new Bejelentkezes(login_email, login_password);
-
-        try {
-            Token token = Api.postBejelentkezes(bejelentkezes);
-            Felhasznalo felhasznaloAdatok = Api.getBejelentkezesAdatok(token.getToken());
-
-            ((Stage) bejelentkezesView.getScene().getWindow()).close();
-            MainController main = (MainController) newWindow(
-                    "main-view.fxml", "Kreatív Ötletcentrum Raktárkezelő", 1300, 700
-            );
-            main.getStage().show();
-        } catch (IOException e) {
-            showAlert(e);
-        }*/
     }
 
 }

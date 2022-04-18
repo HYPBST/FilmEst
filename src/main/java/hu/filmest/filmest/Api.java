@@ -279,10 +279,8 @@ public class Api {
 
     public static Token postBejelentkezes(Bejelentkezes bejelentkezes) throws IOException {
         String bejelentkezesJson = jsonConverter.toJson(bejelentkezes);
-
         Response response = RequestHandler.post(LOGIN_API_URL, bejelentkezesJson);
         String json = response.getContent();
-
         if (response.getResponseCode() >= 400){
             String message = jsonConverter.fromJson(json, ApiError.class).getMessage();
             throw new IOException(message);
@@ -292,7 +290,6 @@ public class Api {
 
     public static Felhasznalo getBejelentkezesAdatok(String token) throws IOException {
         String json = getBejelentkezes(LOGIN_USER_API_URL, token);
-        System.out.println(json);
         return jsonConverter.fromJson(json, Felhasznalo.class);
     }
 }
