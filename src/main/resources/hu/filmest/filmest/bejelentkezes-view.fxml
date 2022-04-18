@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hu.filmest.filmest.controllers.LoginController"
+            prefHeight="400.0" prefWidth="600.0" spacing="10" fx:id="bejelentkezesView">
+    <Label text="Email cím:"/>
+    <TextField fx:id="txtEmail"/>
+    <Label text="Jelszó"/>
+    <PasswordField fx:id="txtPassword"/>
+    <Button text="Bejelentkezés:" onAction="#onButtonClickBejelentkezes"/>
+</VBox>
