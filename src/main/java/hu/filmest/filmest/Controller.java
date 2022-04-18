@@ -41,7 +41,7 @@ public abstract class Controller {
         return result.get() == ButtonType.OK;
     }
 
-    protected void showAlert(Exception e) {
+    protected void exceptionAlert(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Hiba");
         alert.setHeaderText(e.getClass().toString());

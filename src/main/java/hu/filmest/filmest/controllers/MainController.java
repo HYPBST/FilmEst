@@ -222,7 +222,7 @@ public class MainController extends Controller {
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -240,7 +240,7 @@ public class MainController extends Controller {
             modositas.getStage().setOnHiding(event -> reset());
             modositas.getStage().show();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -259,7 +259,7 @@ public class MainController extends Controller {
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
             reset();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -270,7 +270,7 @@ public class MainController extends Controller {
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -288,7 +288,7 @@ public class MainController extends Controller {
             modositas.getStage().setOnHiding(event -> reset());
             modositas.getStage().show();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -307,7 +307,7 @@ public class MainController extends Controller {
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
             reset();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -318,7 +318,7 @@ public class MainController extends Controller {
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -336,7 +336,7 @@ public class MainController extends Controller {
             modositas.getStage().setOnHiding(event -> reset());
             modositas.getStage().show();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -355,7 +355,7 @@ public class MainController extends Controller {
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
             reset();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -373,7 +373,7 @@ public class MainController extends Controller {
             modositas.getStage().setOnHiding(event -> reset());
             modositas.getStage().show();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -392,7 +392,7 @@ public class MainController extends Controller {
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
             reset();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -403,7 +403,7 @@ public class MainController extends Controller {
             hozzadas.getStage().setOnCloseRequest(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
@@ -422,7 +422,7 @@ public class MainController extends Controller {
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
             reset();
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 

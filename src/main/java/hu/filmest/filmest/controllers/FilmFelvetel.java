@@ -212,7 +212,7 @@ public class FilmFelvetel extends Controller {
                 alert("Film hozzáadása sikeretelen");
             }
         } catch (Exception e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
 
     }

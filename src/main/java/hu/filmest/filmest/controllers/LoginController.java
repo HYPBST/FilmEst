@@ -2,7 +2,6 @@ package hu.filmest.filmest.controllers;
 
 import hu.filmest.filmest.Api;
 import hu.filmest.filmest.Controller;
-import hu.filmest.filmest.FilmEst;
 import hu.filmest.filmest.classes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,7 +40,7 @@ public class LoginController extends Controller{
                 alert("Nincs jogod bejelentkezni.");
             }
         } catch (IOException e) {
-            showAlert(e);
+            exceptionAlert(e);
         }
     }
 
