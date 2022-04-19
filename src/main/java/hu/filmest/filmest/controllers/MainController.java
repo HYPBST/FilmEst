@@ -219,7 +219,7 @@ public class MainController extends Controller {
         try {
             Controller hozzadas = newWindow("kategoriahozzaadas-view.fxml", "Kategória hozzáadása",
                     320, 400);
-            hozzadas.getStage().setOnCloseRequest(event -> reset());
+            hozzadas.getStage().setOnHiding(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -267,7 +267,7 @@ public class MainController extends Controller {
         try {
             Controller hozzadas = newWindow("rendezohozzaadas-view.fxml", "Rendező hozzáadás",
                     320, 400);
-            hozzadas.getStage().setOnCloseRequest(event -> reset());
+            hozzadas.getStage().setOnHiding(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -315,7 +315,7 @@ public class MainController extends Controller {
         try {
             Controller hozzadas = newWindow("szineszhozzaadas-view.fxml", "Színész Hozzáadás",
                     320, 400);
-            hozzadas.getStage().setOnCloseRequest(event -> reset());
+            hozzadas.getStage().setOnHiding(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -400,7 +400,7 @@ public class MainController extends Controller {
         try {
             Controller hozzadas = newWindow("filmhozzaadas-view.fxml", "Film hozzáadás",
                     400, 500);
-            hozzadas.getStage().setOnCloseRequest(event -> reset());
+            hozzadas.getStage().setOnHiding(event -> reset());
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -441,6 +441,7 @@ public class MainController extends Controller {
         }
         filmTable.getItems().clear();
         talalatok.forEach(film -> filmTable.getItems().add(film));
+        txtAdatok.setText("");
     }
 
     public void reset() {
@@ -455,6 +456,7 @@ public class MainController extends Controller {
         keresesRendezo.setText("");
         keresesSzinesz.setText("");
         keresesFelhasznalo.setText("");
+        txtAdatok.setText("");
     }
 
     public void onKategoriaKeresesButtonClick(ActionEvent actionEvent) {
