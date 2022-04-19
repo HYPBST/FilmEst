@@ -57,6 +57,7 @@ public abstract class Controller {
 
     public static Controller newWindow(String fxml, String title, int width, int height) throws IOException {
         Stage stage = new Stage();
+        stage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(FilmEst.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load(), width, height);
         stage.setTitle(title);

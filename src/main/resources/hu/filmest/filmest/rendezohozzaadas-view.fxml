@@ -2,14 +2,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="hu.filmest.filmest.controllers.RendezoFelvetel"
-      prefHeight="400.0" prefWidth="600.0" spacing="10">
+      fx:controller="hu.filmest.filmest.controllers.RendezoFelvetel" spacing="10">
     <Label text="Rendező név:"/>
-    <TextField fx:id="felvetelRendezo" promptText="Rendező"/>
-
-    <Button minWidth="100.0" mnemonicParsing="false" onAction="#onFelvetelButtonClick" prefWidth="200.0"
-            text="Felvétel" />
-
+    <TextField fx:id="felvetelRendezo" promptText="Rendező">
+        <VBox.margin>
+            <Insets bottom="20.0" />
+        </VBox.margin>
+    </TextField>
+    <HBox alignment="CENTER">
+        <Button contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#onFelvetelButtonClick" prefWidth="90.0" text="Felvétel" />
+    </HBox>
 </VBox>

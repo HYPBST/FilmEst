@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.2"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="hu.filmest.filmest.controllers.FilmFelvetel"
-      spacing="5">
-    <Label text="Cím:"/>
+<VBox spacing="5" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.filmest.filmest.controllers.FilmFelvetel">
+    <Label text="Cím:" />
     <TextField fx:id="txtCim" promptText="Cím" />
-    <Label text="Leírás:"/>
-    <TextArea fx:id="txtLeiras" promptText="Leírás" />
-    <Label text="Megjelenési év:"/>
+    <Label text="Leírás:" />
+    <TextArea fx:id="txtLeiras" promptText="Leírás" wrapText="true" />
+    <Label text="Megjelenési év:" />
     <TextField fx:id="txtEv" promptText="Megjelenési év" />
-    <Label text="értékelés:"/>
+    <Label text="értékelés:" />
     <TextField fx:id="txtErtekeles" promptText="Értékelés" />
-    <Label text="Img Url:"/>
+    <Label text="Img Url:" />
     <TextField fx:id="txtImgUrl" promptText="Img Url" />
-    <MenuButton text="Kategóriák" fx:id="menuKategoria"/>
-    <MenuButton text="Színészek" fx:id="menuSzineszek"/>
-    <MenuButton text="Rendezők" fx:id="menuRendezok"/>
-    <Button text="Felvétel" onAction="#onFelvetelButtonClick"/>
+
+    <VBox alignment="CENTER">
+        <HBox alignment="CENTER" spacing="20">
+            <MenuButton fx:id="menuKategoria" prefWidth="90.0" text="Kategóriák" />
+            <MenuButton fx:id="menuSzineszek" prefWidth="90.0" text="Színészek" />
+            <MenuButton fx:id="menuRendezok" prefWidth="90.0" text="Rendezők" />
+         <padding>
+            <Insets bottom="15.0" />
+         </padding>
+        </HBox>
+        <Button alignment="CENTER" onAction="#onFelvetelButtonClick" prefWidth="90.0" text="Felvétel" />
+    </VBox>
+
 </VBox>

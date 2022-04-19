@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="hu.filmest.filmest.controllers.KategoriaFelvetel"
-      prefHeight="400.0" prefWidth="600.0" spacing="10">
-    <Label text="Kategória név:"/>
-    <TextField fx:id="felvetelKategoria" promptText="Kategória" />
-
-    <Button minWidth="100.0" mnemonicParsing="false" prefWidth="200.0"  onAction="#onFelvetelButtonClick"
-            text="Felvétel"/>
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.filmest.filmest.controllers.KategoriaFelvetel">
+    <Label text="Kategória név:" />
+    <TextField fx:id="felvetelKategoria" promptText="Kategória">
+      <VBox.margin>
+         <Insets bottom="20.0" />
+      </VBox.margin></TextField>
+    <HBox alignment="CENTER">
+        <Button contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#onFelvetelButtonClick" prefWidth="200.0" text="Felvétel" />
+    </HBox>
 </VBox>

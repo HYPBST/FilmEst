@@ -5,9 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
 <VBox xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.filmest.filmest.controllers.KategoriaModositas" spacing="10">
     <Label text="Kategória név:"/>
-    <TextField fx:id="modositKategoria" promptText="Kategória"/>
-    <Button minWidth="100.0" mnemonicParsing="false" onAction="#onModositButtonClick" prefWidth="200.0"
-            text="Módosít" />
+    <TextField fx:id="modositKategoria" promptText="Kategória">
+    <VBox.margin>
+        <Insets bottom="20.0" />
+    </VBox.margin>
+    </TextField>
+    <HBox alignment="CENTER">
+        <Button contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#onModositButtonClick" prefWidth="200.0" text="Módosít" />
+    </HBox>
 </VBox>

@@ -105,7 +105,10 @@ public class MainController extends Controller {
             film.setSzineszek(new ArrayList<>());
             filmTable.getItems().add(film);
         }
-    }private void felhasznaloListaFeltolt(){
+        txtAdatok.clear();
+        keresesFilm.clear();
+    }
+    private void felhasznaloListaFeltolt(){
         try {
             felhasznaloList = Api.getFelhasznaloList();
         } catch (IOException e) {
@@ -117,6 +120,7 @@ public class MainController extends Controller {
                 felhasznaloTable.getItems().add(felhasznalo);
             }
         }
+        keresesFelhasznalo.clear();
     }
     private void kategoriaListaFeltolt(){
         try {
@@ -126,6 +130,7 @@ public class MainController extends Controller {
         }
         kategoriaTable.getItems().clear();
         kategoriaList.forEach(kategoria -> kategoriaTable.getItems().add(kategoria));
+        keresesKategoria.clear();
     }
     private void rendezoListaFeltolt(){
         try {
@@ -135,6 +140,7 @@ public class MainController extends Controller {
         }
         rendezoTable.getItems().clear();
         rendezoList.forEach(rendezo -> rendezoTable.getItems().add(rendezo));
+        keresesRendezo.clear();
     }
     private void szineszListaFeltolt(){
         try {
@@ -144,6 +150,7 @@ public class MainController extends Controller {
         }
         szineszTable.getItems().clear();
         szineszList.forEach(szinesz -> szineszTable.getItems().add(szinesz));
+        keresesSzinesz.clear();
     }
 
     public void onFilmSelect(MouseEvent mouseEvent) {
@@ -218,8 +225,8 @@ public class MainController extends Controller {
     public void onKategoriaHozzadasButtonClick(ActionEvent actionEvent) {
         try {
             Controller hozzadas = newWindow("kategoriahozzaadas-view.fxml", "Kategória hozzáadása",
-                    320, 400);
-            hozzadas.getStage().setOnHiding(event -> reset());
+                    300, 150);
+            hozzadas.getStage().setOnHiding(event -> kategoriaListaFeltolt());
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -235,9 +242,12 @@ public class MainController extends Controller {
         Kategoria modositando = kategoriaTable.getSelectionModel().getSelectedItem();
         try {
             KategoriaModositas modositas = (KategoriaModositas) newWindow("kategoriaModositas-view.fxml",
-                    "Kategória módosítás", 320, 400);
+                    "Kategória módosítás", 300, 150);
             modositas.setModositando(modositando);
-            modositas.getStage().setOnHiding(event -> reset());
+            modositas.getStage().setOnHiding(event -> {
+                kategoriaListaFeltolt();
+                kapcsolatok();
+            });
             modositas.getStage().show();
         } catch (IOException e) {
             exceptionAlert(e);
@@ -257,7 +267,9 @@ public class MainController extends Controller {
         try {
             boolean sikeres = Api.kategoriaTorles(torlendoKategoria.getId());
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
-            reset();
+            kategoriaListaFeltolt();
+            filmListaFeltolt();
+            kapcsolatok();
         } catch (IOException e) {
             exceptionAlert(e);
         }
@@ -266,8 +278,8 @@ public class MainController extends Controller {
     public void onRendezoHozzadasButtonClick(ActionEvent actionEvent) {
         try {
             Controller hozzadas = newWindow("rendezohozzaadas-view.fxml", "Rendező hozzáadás",
-                    320, 400);
-            hozzadas.getStage().setOnHiding(event -> reset());
+                    300, 150);
+            hozzadas.getStage().setOnHiding(event -> rendezoListaFeltolt());
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -283,9 +295,12 @@ public class MainController extends Controller {
         Rendezo modositando = rendezoTable.getSelectionModel().getSelectedItem();
         try {
             RendezoModositas modositas = (RendezoModositas) newWindow("rendezomodositas-view.fxml",
-                    "Rendező módosítás", 320, 400);
+                    "Rendező módosítás", 300, 150);
             modositas.setModositando(modositando);
-            modositas.getStage().setOnHiding(event -> reset());
+            modositas.getStage().setOnHiding(event -> {
+                rendezoListaFeltolt();
+                kapcsolatok();
+            });
             modositas.getStage().show();
         } catch (IOException e) {
             exceptionAlert(e);
@@ -305,7 +320,9 @@ public class MainController extends Controller {
         try {
             boolean sikeres = Api.rendezoTorles(torlendoRendezo.getId());
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
-            reset();
+            rendezoListaFeltolt();
+            filmListaFeltolt();
+            kapcsolatok();
         } catch (IOException e) {
             exceptionAlert(e);
         }
@@ -314,8 +331,8 @@ public class MainController extends Controller {
     public void onSzineszHozzadasButtonClick(ActionEvent actionEvent) {
         try {
             Controller hozzadas = newWindow("szineszhozzaadas-view.fxml", "Színész Hozzáadás",
-                    320, 400);
-            hozzadas.getStage().setOnHiding(event -> reset());
+                    300, 150);
+            hozzadas.getStage().setOnHiding(event -> szineszListaFeltolt());
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -331,9 +348,12 @@ public class MainController extends Controller {
         Szinesz modositando = szineszTable.getSelectionModel().getSelectedItem();
         try {
             SzineszModositas modositas = (SzineszModositas) newWindow("szineszmodositas-view.fxml",
-                    "Színész Módosítás", 320, 400);
+                    "Színész Módosítás", 300, 150);
             modositas.setModositando(modositando);
-            modositas.getStage().setOnHiding(event -> reset());
+            modositas.getStage().setOnHiding(event -> {
+                szineszListaFeltolt();
+                kapcsolatok();
+            });
             modositas.getStage().show();
         } catch (IOException e) {
             exceptionAlert(e);
@@ -353,7 +373,9 @@ public class MainController extends Controller {
         try {
             boolean sikeres = Api.szineszTorles(torlendoSzinesz.getId());
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
-            reset();
+            szineszListaFeltolt();
+            filmListaFeltolt();
+            kapcsolatok();
         } catch (IOException e) {
             exceptionAlert(e);
         }
@@ -370,7 +392,10 @@ public class MainController extends Controller {
             FilmModositas modositas = (FilmModositas) newWindow("filmmodositas-view.fxml",
                     "Film Módosítás", 400, 500);
             modositas.setModositando(modositando);
-            modositas.getStage().setOnHiding(event -> reset());
+            modositas.getStage().setOnHiding(event -> {
+                filmListaFeltolt();
+                kapcsolatok();
+            });
             modositas.getStage().show();
         } catch (IOException e) {
             exceptionAlert(e);
@@ -390,7 +415,8 @@ public class MainController extends Controller {
         try {
             boolean sikeres = Api.filmTorlese(torlendoFilm.getId());
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
-            reset();
+            filmTable.getItems().remove(torlendoFilm);
+            filmList.remove(torlendoFilm);
         } catch (IOException e) {
             exceptionAlert(e);
         }
@@ -400,7 +426,10 @@ public class MainController extends Controller {
         try {
             Controller hozzadas = newWindow("filmhozzaadas-view.fxml", "Film hozzáadás",
                     400, 500);
-            hozzadas.getStage().setOnHiding(event -> reset());
+            hozzadas.getStage().setOnHiding(event -> {
+                filmListaFeltolt();
+                kapcsolatok();
+            });
             hozzadas.getStage().show();
         } catch (Exception e) {
             exceptionAlert(e);
@@ -420,7 +449,8 @@ public class MainController extends Controller {
         try {
             boolean sikeres = Api.felhasznaloTorles(torlendoFelhasznalo.getId());
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
-            reset();
+            felhasznaloTable.getItems().remove(torlendoFelhasznalo);
+            felhasznaloList.remove(torlendoFelhasznalo);
         } catch (IOException e) {
             exceptionAlert(e);
         }
@@ -441,22 +471,46 @@ public class MainController extends Controller {
         }
         filmTable.getItems().clear();
         talalatok.forEach(film -> filmTable.getItems().add(film));
-        txtAdatok.setText("");
+        txtAdatok.clear();
     }
+    public void onFilmResetButtonClick(ActionEvent actionEvent){
+        filmTable.getItems().clear();
+        for(Film film: filmList){
+            filmTable.getItems().add(film);
+        }
+        keresesFilm.clear();
+        txtAdatok.clear();
+    }
+    public void onKategoriaResetButtonClick(ActionEvent actionEvent){
+        kategoriaTable.getItems().clear();
+        for(Kategoria kategoria: kategoriaList){
+            kategoriaTable.getItems().add(kategoria);
+        }
+        keresesKategoria.clear();
+    }
+    public void onSzineszResetButtonClick(ActionEvent actionEvent){
+        szineszTable.getItems().clear();
+        for(Szinesz szinesz: szineszList){
+            szineszTable.getItems().add(szinesz);
+        }
+        keresesSzinesz.clear();
+    }
+    public void onRendezoResetButtonClick(ActionEvent actionEvent){
+        rendezoTable.getItems().clear();
+        for(Rendezo rendezo: rendezoList){
+            rendezoTable.getItems().add(rendezo);
+        }
+        keresesRendezo.clear();
+    }
+    public void onFelhasznaloResetButtonClick(ActionEvent actionEvent){
+        felhasznaloTable.getItems().clear();
+        for(Felhasznalo felhasznalo: felhasznaloList){
+            if (felhasznalo.getPermission()==0){
+                felhasznaloTable.getItems().add(felhasznalo);
+            }
 
-    public void reset() {
-        filmListaFeltolt();
-        kategoriaListaFeltolt();
-        rendezoListaFeltolt();
-        szineszListaFeltolt();
-        felhasznaloListaFeltolt();
-        kapcsolatok();
-        keresesFilm.setText("");
-        keresesKategoria.setText("");
-        keresesRendezo.setText("");
-        keresesSzinesz.setText("");
-        keresesFelhasznalo.setText("");
-        txtAdatok.setText("");
+        }
+        keresesFelhasznalo.clear();
     }
 
     public void onKategoriaKeresesButtonClick(ActionEvent actionEvent) {
@@ -519,7 +573,7 @@ public class MainController extends Controller {
         }
         for (Felhasznalo f:felhasznaloList
         ) {
-            if (f.getEmail().toLowerCase().contains(keresendo.toLowerCase())){
+            if (f.getEmail().toLowerCase().contains(keresendo.toLowerCase())&&f.getPermission()==0){
                 talalatok.add(f);
             }
         }
