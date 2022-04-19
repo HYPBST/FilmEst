@@ -24,7 +24,7 @@
                 <Button maxWidth="100.0" minWidth="100.0" text="Keresés" onAction="#onFilmKeresesButtonClick"/>
                 <Button maxWidth="100.0" minWidth="100.0" text="Reset" onAction="#reset"/>
             </HBox>
-            <TableView fx:id="filmTable" minHeight="200.0" onMouseClicked="#onItemSelect" prefHeight="200.0"
+            <TableView fx:id="filmTable" minHeight="200.0" onMouseClicked="#onFilmSelect" prefHeight="200.0"
                        prefWidth="750.0" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colFilmId" minWidth="380.0" prefWidth="380.0" maxWidth="380.0" text="ID"/>
@@ -52,7 +52,7 @@
                 <Button maxWidth="100.0" minWidth="100.0" text="Keresés" onAction="#onKategoriaKeresesButtonClick"/>
                 <Button maxWidth="100.0" minWidth="100.0" text="Reset" onAction="#reset"/>
             </HBox>
-            <TableView fx:id="kategoriaTable" minHeight="200.0" onMouseClicked="#onItemSelect" prefHeight="200.0"
+            <TableView fx:id="kategoriaTable" minHeight="200.0" onMouseClicked="#onFilmSelect" prefHeight="200.0"
                        prefWidth="750.0" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colKategoriaId" minWidth="380.0" prefWidth="380.0" maxWidth="380.0"
@@ -81,7 +81,7 @@
                 <Button maxWidth="100.0" minWidth="100.0" text="Keresés" onAction="#onRendezoKeresesButtonClick"/>
                 <Button maxWidth="100.0" minWidth="100.0" text="Reset" onAction="#reset"/>
             </HBox>
-            <TableView fx:id="rendezoTable" minHeight="200.0" onMouseClicked="#onItemSelect" prefHeight="200.0"
+            <TableView fx:id="rendezoTable" minHeight="200.0" onMouseClicked="#onFilmSelect" prefHeight="200.0"
                        prefWidth="750.0" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colRendezoId" minWidth="380.0" prefWidth="380.0" maxWidth="380.0"
@@ -109,7 +109,7 @@
                 <Button maxWidth="100.0" minWidth="100.0" text="Keresés" onAction="#onSzineszKeresesButtonClick"/>
                 <Button maxWidth="100.0" minWidth="100.0" text="Reset" onAction="#reset"/>
             </HBox>
-            <TableView fx:id="szineszTable" minHeight="200.0" onMouseClicked="#onItemSelect" prefHeight="200.0"
+            <TableView fx:id="szineszTable" minHeight="200.0" onMouseClicked="#onFilmSelect" prefHeight="200.0"
                        prefWidth="750.0" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colSzineszId" minWidth="380.0" prefWidth="380.0" maxWidth="380.0"
@@ -134,7 +134,7 @@
                         onAction="#onFelhasznaloKeresesButtonClick"/>
                 <Button maxWidth="100.0" minWidth="100.0" text="Reset" onAction="#reset"/>
             </HBox>
-            <TableView fx:id="felhasznaloTable" minHeight="200.0" onMouseClicked="#onItemSelect" prefHeight="200.0"
+            <TableView fx:id="felhasznaloTable" minHeight="200.0" onMouseClicked="#onFilmSelect" prefHeight="200.0"
                        prefWidth="750.0" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colFelhasznaloId" minWidth="380.0" prefWidth="380.0" maxWidth="380.0"

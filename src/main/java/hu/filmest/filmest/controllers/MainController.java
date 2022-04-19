@@ -146,7 +146,7 @@ public class MainController extends Controller {
         szineszList.forEach(szinesz -> szineszTable.getItems().add(szinesz));
     }
 
-    public void onItemSelect(MouseEvent mouseEvent) {
+    public void onFilmSelect(MouseEvent mouseEvent) {
         if(filmTable.getSelectionModel().getSelectedIndex()!=-1) {
 
             Film kivalasztott = filmTable.getSelectionModel().getSelectedItem();
