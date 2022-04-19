@@ -417,6 +417,7 @@ public class MainController extends Controller {
             alert(sikeres ? "Sikeres törlés": "Sikertele törlés");
             filmTable.getItems().remove(torlendoFilm);
             filmList.remove(torlendoFilm);
+            txtAdatok.clear();
         } catch (IOException e) {
             exceptionAlert(e);
         }

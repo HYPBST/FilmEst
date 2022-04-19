@@ -36,7 +36,7 @@ public class SzineszFelvetel extends Controller {
             for (Szinesz sz:szineszList
             ) {
                 if (sz.getSzineszNev().equalsIgnoreCase(szinesz)){
-                    alert("A rendező már létezik");
+                    alert("A színész már létezik");
 
                     return;
                 }
