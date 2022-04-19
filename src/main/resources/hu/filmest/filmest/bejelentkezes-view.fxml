@@ -11,5 +11,5 @@
     <TextField fx:id="txtEmail"/>
     <Label text="Jelszó"/>
     <PasswordField fx:id="txtPassword"/>
-    <Button text="Bejelentkezés" onAction="#onButtonClickBejelentkezes"/>
+    <Button text="Bejelentkezés" onAction="#onBejelentkezesButtonClick"/>
 </VBox>

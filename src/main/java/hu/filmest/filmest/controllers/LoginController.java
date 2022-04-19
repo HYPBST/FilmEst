@@ -20,7 +20,7 @@ public class LoginController extends Controller{
     @FXML
     public VBox bejelentkezesView;
 
-    public void onButtonClickBejelentkezes(ActionEvent actionEvent) {
+    public void onBejelentkezesButtonClick(ActionEvent actionEvent) {
 
         String login_email = txtEmail.getText().trim();
         String login_password = txtPassword.getText().trim();
