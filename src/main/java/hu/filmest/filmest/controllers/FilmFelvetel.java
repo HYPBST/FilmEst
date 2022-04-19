@@ -133,10 +133,7 @@ public class FilmFelvetel extends Controller {
             alert("Url megadása kötelező");
             return;
         }
-        boolean valodiUrl=false;
-        if (imageUrl.length()<4|| imageUrl.startsWith("www.")|| imageUrl.startsWith("https://")){
-            valodiUrl=true;
-        }
+        boolean valodiUrl= imageUrl.startsWith("www.") || imageUrl.startsWith("https://");
         if (!valodiUrl){
             alert("Valódi URL-t kell megadni.");
             return;
