@@ -15,6 +15,6 @@
     </VBox.margin>
     </TextField>
     <HBox alignment="CENTER">
-        <Button contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#onModositButtonClick" prefWidth="200.0" text="Módosít" />
+        <Button contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#onModositButtonClick" prefWidth="90.0" text="Módosít" />
     </HBox>
 </VBox>
