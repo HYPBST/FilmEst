@@ -3,13 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hu.filmest.filmest.controllers.LoginController"
-            prefHeight="400.0" prefWidth="600.0" spacing="10" fx:id="bejelentkezesView">
-    <Label text="Email cím:"/>
-    <TextField fx:id="txtEmail"/>
-    <Label text="Jelszó"/>
-    <PasswordField fx:id="txtPassword"/>
-    <Button text="Bejelentkezés" onAction="#onBejelentkezesButtonClick"/>
+<VBox fx:id="bejelentkezesView" spacing="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.filmest.filmest.controllers.LoginController">
+    <Label text="Email cím:" />
+    <TextField fx:id="txtEmail" />
+    <Label text="Jelszó:" />
+    <PasswordField fx:id="txtPassword" />
+    <HBox alignment="CENTER">
+        <Button onAction="#onBejelentkezesButtonClick" prefWidth="90.0" text="Bejelentkezés" />
+    </HBox>
 </VBox>

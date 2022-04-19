@@ -176,6 +176,9 @@ public class MainController extends Controller {
         }
         for (Film film:filmList
         ) {
+            film.setKategoriak(new ArrayList<>());
+            film.setRendezok(new ArrayList<>());
+            film.setSzineszek(new ArrayList<>());
             for (FilmKategoriai filmkategoria : filmKategoriai
             ) {
                 if (filmkategoria.getFilmId() == film.getId()) {
@@ -220,6 +223,12 @@ public class MainController extends Controller {
             }
         }
 
+        txtAdatok.clear();
+        filmTable.getSelectionModel().clearSelection();
+        kategoriaTable.getSelectionModel().clearSelection();
+        szineszTable.getSelectionModel().clearSelection();
+        rendezoTable.getSelectionModel().clearSelection();
+        felhasznaloTable.getSelectionModel().clearSelection();
     }
 
     public void onKategoriaHozzadasButtonClick(ActionEvent actionEvent) {
@@ -241,7 +250,7 @@ public class MainController extends Controller {
         }
         Kategoria modositando = kategoriaTable.getSelectionModel().getSelectedItem();
         try {
-            KategoriaModositas modositas = (KategoriaModositas) newWindow("kategoriaModositas-view.fxml",
+            KategoriaModositas modositas = (KategoriaModositas) newWindow("kategoriamodositas-view.fxml",
                     "Kategória módosítás", 300, 150);
             modositas.setModositando(modositando);
             modositas.getStage().setOnHiding(event -> {
