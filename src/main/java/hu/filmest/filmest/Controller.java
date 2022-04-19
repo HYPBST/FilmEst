@@ -43,8 +43,8 @@ public abstract class Controller {
 
     protected void exceptionAlert(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Hiba");
-        alert.setHeaderText(e.getClass().toString());
+        alert.setTitle("Exception error");
+        alert.setHeaderText("Hiba");
         alert.setContentText(e.getMessage());
         Timer alertTimer = new Timer();
         alertTimer.schedule(new TimerTask() {
